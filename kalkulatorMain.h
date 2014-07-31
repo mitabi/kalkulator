@@ -30,6 +30,11 @@ private:
     virtual void sldSrCyl_Onscroll( wxScrollEvent& event ) ;
     virtual void sldSrTlocz_Onscroll( wxScrollEvent& event ) ;
     virtual void CleanLog( wxCommandEvent& event );
+    virtual void CisZas_Onscroll( wxScrollEvent& event ) ;
+    virtual void OnStart(wxActivateEvent& event);
+    virtual void SrCyl_OnSpin(wxSpinEvent& event);
+
+
 };
 
 #endif // KALKULATORMAIN_H

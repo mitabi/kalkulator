@@ -22,12 +22,13 @@
 #include <wx/statusbr.h>
 #include <wx/stattext.h>
 #include <wx/slider.h>
-#include <wx/textctrl.h>
-#include <wx/combobox.h>
+#include <wx/spinctrl.h>
+#include <wx/choice.h>
 #include <wx/sizer.h>
 #include <wx/button.h>
 #include <wx/panel.h>
 #include <wx/notebook.h>
+#include <wx/textctrl.h>
 #include <wx/frame.h>
 
 ///////////////////////////////////////////////////////////////////////////
@@ -51,30 +52,37 @@ class GUIFrame : public wxFrame
 		wxPanel* panelSilowniki;
 		wxStaticText* lblSrCyl;
 		wxSlider* sldSrCyl;
-		wxTextCtrl* textSrCyl;
-		wxComboBox* comJednCyl;
+		wxSpinCtrl* textSrCyl;
+		wxChoice* comJednCyl;
 		wxStaticText* lblSrTlocz;
 		wxSlider* sldSrTlocz;
-		wxTextCtrl* textSrTlocz;
-		wxComboBox* comJednTlocz;
+		wxSpinCtrl* textSrTlocz;
+		wxChoice* comJednTlocz;
+		wxStaticText* lblCisZas;
+		wxSlider* sldCisZas;
+		wxSpinCtrl* textCisZas;
+		wxChoice* comJednCisZas;
 		wxButton* buttonOblicz;
 		wxPanel* m_panel3;
 		wxTextCtrl* textLog;
 		wxButton* buttonCleanLog;
 		
 		// Virtual event handlers, overide them in your derived class
+		virtual void OnStart( wxActivateEvent& event ) { event.Skip(); }
 		virtual void OnClose( wxCloseEvent& event ) { event.Skip(); }
 		virtual void OnQuit( wxCommandEvent& event ) { event.Skip(); }
 		virtual void OnAbout( wxCommandEvent& event ) { event.Skip(); }
 		virtual void sldSrCyl_Onscroll( wxScrollEvent& event ) { event.Skip(); }
+		virtual void SrCyl_OnSpin( wxSpinEvent& event ) { event.Skip(); }
 		virtual void sldSrTlocz_Onscroll( wxScrollEvent& event ) { event.Skip(); }
+		virtual void CisZas_Onscroll( wxScrollEvent& event ) { event.Skip(); }
 		virtual void Oblicz( wxCommandEvent& event ) { event.Skip(); }
 		virtual void CleanLog( wxCommandEvent& event ) { event.Skip(); }
 		
 	
 	public:
 		
-		GUIFrame( wxWindow* parent, wxWindowID id = wxID_ANY, const wxString& title = wxT("wxWidgets Application Template"), const wxPoint& pos = wxDefaultPosition, const wxSize& size = wxSize( 481,466 ), long style = wxDEFAULT_FRAME_STYLE|wxTAB_TRAVERSAL );
+		GUIFrame( wxWindow* parent, wxWindowID id = wxID_ANY, const wxString& title = wxT("Kalkulator"), const wxPoint& pos = wxDefaultPosition, const wxSize& size = wxSize( 745,466 ), long style = wxDEFAULT_FRAME_STYLE|wxTAB_TRAVERSAL );
 		
 		~GUIFrame();
 	

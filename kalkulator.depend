@@ -1,5 +1,5 @@
 # depslib dependency file v1.0
-1406833605 source:c:\users\oem\desktop\kalkulator\guiframe.cpp
+1407012259 source:c:\users\oem\desktop\kalkulator\guiframe.cpp
 	"wx/wxprec.h"
 	<wx/wx.h>
 	"GUIFrame.h"
@@ -2505,7 +2505,7 @@
 
 1406446644 d:\cpp\wxwidgets\include\wx\osx\mdi.h
 
-1406833000 c:\users\oem\desktop\kalkulator\guiframe.h
+1407013222 c:\users\oem\desktop\kalkulator\guiframe.h
 	<wx/artprov.h>
 	<wx/xrc/xmlres.h>
 	<wx/string.h>
@@ -2520,12 +2520,13 @@
 	<wx/statusbr.h>
 	<wx/stattext.h>
 	<wx/slider.h>
-	<wx/textctrl.h>
-	<wx/combobox.h>
+	<wx/spinctrl.h>
+	<wx/choice.h>
 	<wx/sizer.h>
 	<wx/button.h>
 	<wx/panel.h>
 	<wx/notebook.h>
+	<wx/textctrl.h>
 	<wx/frame.h>
 
 1406833202 source:c:\users\oem\desktop\kalkulator\kalkulatorapp.cpp
@@ -2536,14 +2537,18 @@
 1406657306 c:\users\oem\desktop\kalkulator\kalkulatorapp.h
 	<wx/app.h>
 
-1406738133 c:\users\oem\desktop\kalkulator\kalkulatormain.h
+1407013283 c:\users\oem\desktop\kalkulator\kalkulatormain.h
 	"kalkulatorApp.h"
 	<wx/msgdlg.h>
 	"GUIFrame.h"
 
-1406743644 source:c:\users\oem\desktop\kalkulator\kalkulatormain.cpp
+1407011048 source:c:\users\oem\desktop\kalkulator\kalkulatormain.cpp
 	"wx_pch.h"
 	"kalkulatorMain.h"
+	"version.h"
+	"wx/combobox.h"
+	"wx/textctrl.h"
+	"GUIFrame.h"
 
 1385320476 source:c:\users\oem\desktop\kalkulator\resource.rc
 	"wx/msw/wx.rc"
@@ -2644,4 +2649,64 @@
 
 1406446647 d:\cpp\wxwidgets\include\wx\osx\notebook.h
 	"wx/event.h"
+
+1407011976 c:\users\oem\desktop\kalkulator\version.h
+
+1406446643 d:\cpp\wxwidgets\include\wx\spinctrl.h
+	"wx/defs.h"
+	"wx/spinbutt.h"
+	"wx/msw/spinctrl.h"
+	"wx/gtk/spinctrl.h"
+	"wx/gtk1/spinctrl.h"
+	"wx/generic/spinctlg.h"
+
+1406446661 d:\cpp\wxwidgets\include\wx\spinbutt.h
+	"wx/defs.h"
+	"wx/control.h"
+	"wx/event.h"
+	"wx/range.h"
+	"wx/univ/spinbutt.h"
+	"wx/msw/spinbutt.h"
+	"wx/motif/spinbutt.h"
+	"wx/gtk/spinbutt.h"
+	"wx/gtk1/spinbutt.h"
+	"wx/osx/spinbutt.h"
+
+1406446668 d:\cpp\wxwidgets\include\wx\range.h
+	"wx/defs.h"
+
+1406446659 d:\cpp\wxwidgets\include\wx\univ\spinbutt.h
+	"wx/univ/scrarrow.h"
+
+1406446631 d:\cpp\wxwidgets\include\wx\msw\spinbutt.h
+	"wx/control.h"
+	"wx/event.h"
+
+1406446657 d:\cpp\wxwidgets\include\wx\motif\spinbutt.h
+
+1406446649 d:\cpp\wxwidgets\include\wx\gtk\spinbutt.h
+
+1406446665 d:\cpp\wxwidgets\include\wx\gtk1\spinbutt.h
+
+1406446647 d:\cpp\wxwidgets\include\wx\osx\spinbutt.h
+	"wx/control.h"
+	"wx/event.h"
+
+1406446633 d:\cpp\wxwidgets\include\wx\msw\spinctrl.h
+	"wx/spinbutt.h"
+	"wx/dynarray.h"
+
+1406446651 d:\cpp\wxwidgets\include\wx\gtk\spinctrl.h
+
+1406446664 d:\cpp\wxwidgets\include\wx\gtk1\spinctrl.h
+	"wx/defs.h"
+	"wx/control.h"
+
+1406446673 d:\cpp\wxwidgets\include\wx\generic\spinctlg.h
+	"wx/compositewin.h"
+	"wx/textctrl.h"
+
+1406446665 d:\cpp\wxwidgets\include\wx\compositewin.h
+	"wx/window.h"
+	"wx/containr.h"
 

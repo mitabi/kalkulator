@@ -56,49 +56,55 @@ GUIFrame::GUIFrame( wxWindow* parent, wxWindowID id, const wxString& title, cons
 	
 	lblSrCyl = new wxStaticText( panelSilowniki, wxID_ANY, wxT("Średnica cylindra"), wxDefaultPosition, wxDefaultSize, 0 );
 	lblSrCyl->Wrap( -1 );
-	fgSizer1->Add( lblSrCyl, 0, wxALL, 5 );
+	fgSizer1->Add( lblSrCyl, 0, wxALL|wxEXPAND, 5 );
 	
 	sldSrCyl = new wxSlider( panelSilowniki, wxID_ANY, 100, 1, 999, wxDefaultPosition, wxDefaultSize, wxSL_HORIZONTAL );
 	sldSrCyl->SetMinSize( wxSize( 250,-1 ) );
 	
-	fgSizer1->Add( sldSrCyl, 0, wxALL, 5 );
+	fgSizer1->Add( sldSrCyl, 0, wxALL|wxEXPAND, 5 );
 	
-	textSrCyl = new wxTextCtrl( panelSilowniki, wxID_ANY, wxEmptyString, wxDefaultPosition, wxDefaultSize, 0 );
-	textSrCyl->SetMinSize( wxSize( 50,-1 ) );
+	textSrCyl = new wxSpinCtrl( panelSilowniki, wxID_ANY, wxEmptyString, wxDefaultPosition, wxSize( 50,-1 ), wxSP_ARROW_KEYS, 1, 999, 0 );
+	fgSizer1->Add( textSrCyl, 0, wxALL|wxEXPAND, 5 );
 	
-	fgSizer1->Add( textSrCyl, 0, wxALL, 5 );
-	
-	comJednCyl = new wxComboBox( panelSilowniki, wxID_ANY, wxEmptyString, wxDefaultPosition, wxDefaultSize, 0, NULL, 0 );
-	comJednCyl->Append( wxT("mm") );
-	comJednCyl->Append( wxT("cm") );
-	comJednCyl->Append( wxT("m") );
+	wxString comJednCylChoices[] = { wxT("mm"), wxT("cm"), wxT("m") };
+	int comJednCylNChoices = sizeof( comJednCylChoices ) / sizeof( wxString );
+	comJednCyl = new wxChoice( panelSilowniki, wxID_ANY, wxDefaultPosition, wxSize( 50,-1 ), comJednCylNChoices, comJednCylChoices, 0 );
 	comJednCyl->SetSelection( 0 );
-	comJednCyl->SetMinSize( wxSize( 50,-1 ) );
-	
-	fgSizer1->Add( comJednCyl, 0, wxALL, 5 );
+	fgSizer1->Add( comJednCyl, 0, wxALL|wxEXPAND, 5 );
 	
 	lblSrTlocz = new wxStaticText( panelSilowniki, wxID_ANY, wxT("Średnica tłoczyska"), wxDefaultPosition, wxDefaultSize, 0 );
 	lblSrTlocz->Wrap( -1 );
-	fgSizer1->Add( lblSrTlocz, 0, wxALL, 5 );
+	fgSizer1->Add( lblSrTlocz, 0, wxALL|wxEXPAND, 5 );
 	
 	sldSrTlocz = new wxSlider( panelSilowniki, wxID_ANY, 100, 1, 999, wxDefaultPosition, wxDefaultSize, wxSL_HORIZONTAL );
-	sldSrTlocz->SetMinSize( wxSize( 200,-1 ) );
+	sldSrTlocz->SetMinSize( wxSize( 250,-1 ) );
 	
-	fgSizer1->Add( sldSrTlocz, 0, wxALL, 5 );
+	fgSizer1->Add( sldSrTlocz, 0, wxALL|wxEXPAND, 5 );
 	
-	textSrTlocz = new wxTextCtrl( panelSilowniki, wxID_ANY, wxEmptyString, wxDefaultPosition, wxDefaultSize, 0 );
-	textSrTlocz->SetMinSize( wxSize( 50,-1 ) );
+	textSrTlocz = new wxSpinCtrl( panelSilowniki, wxID_ANY, wxEmptyString, wxDefaultPosition, wxSize( 50,-1 ), wxSP_ARROW_KEYS, 1, 999, 0 );
+	fgSizer1->Add( textSrTlocz, 0, wxALL|wxEXPAND, 5 );
 	
-	fgSizer1->Add( textSrTlocz, 0, wxALL, 5 );
-	
-	comJednTlocz = new wxComboBox( panelSilowniki, wxID_ANY, wxEmptyString, wxDefaultPosition, wxDefaultSize, 0, NULL, 0 );
-	comJednTlocz->Append( wxT("mm") );
-	comJednTlocz->Append( wxT("cm") );
-	comJednTlocz->Append( wxT("m") );
+	wxString comJednTloczChoices[] = { wxT("mm"), wxT("cm"), wxT("m") };
+	int comJednTloczNChoices = sizeof( comJednTloczChoices ) / sizeof( wxString );
+	comJednTlocz = new wxChoice( panelSilowniki, wxID_ANY, wxDefaultPosition, wxSize( 50,-1 ), comJednTloczNChoices, comJednTloczChoices, 0 );
 	comJednTlocz->SetSelection( 0 );
-	comJednTlocz->SetMinSize( wxSize( 50,-1 ) );
+	fgSizer1->Add( comJednTlocz, 0, wxALL|wxEXPAND, 5 );
 	
-	fgSizer1->Add( comJednTlocz, 0, wxALL, 5 );
+	lblCisZas = new wxStaticText( panelSilowniki, wxID_ANY, wxT("Ciśnienie zasilania"), wxDefaultPosition, wxDefaultSize, 0 );
+	lblCisZas->Wrap( -1 );
+	fgSizer1->Add( lblCisZas, 0, wxALL, 5 );
+	
+	sldCisZas = new wxSlider( panelSilowniki, wxID_ANY, 150, 0, 999, wxDefaultPosition, wxDefaultSize, wxSL_HORIZONTAL );
+	fgSizer1->Add( sldCisZas, 0, wxALL|wxEXPAND, 5 );
+	
+	textCisZas = new wxSpinCtrl( panelSilowniki, wxID_ANY, wxEmptyString, wxDefaultPosition, wxSize( 50,-1 ), wxSP_ARROW_KEYS, 1, 999, 0 );
+	fgSizer1->Add( textCisZas, 0, wxALL|wxEXPAND, 5 );
+	
+	wxString comJednCisZasChoices[] = { wxT("Pa"), wxT("kPa"), wxT("MPa"), wxT("atm") };
+	int comJednCisZasNChoices = sizeof( comJednCisZasChoices ) / sizeof( wxString );
+	comJednCisZas = new wxChoice( panelSilowniki, wxID_ANY, wxDefaultPosition, wxSize( 50,-1 ), comJednCisZasNChoices, comJednCisZasChoices, 0 );
+	comJednCisZas->SetSelection( 2 );
+	fgSizer1->Add( comJednCisZas, 0, wxALL|wxEXPAND, 5 );
 	
 	
 	bSizer3->Add( fgSizer1, 1, wxEXPAND, 5 );
@@ -116,7 +122,7 @@ GUIFrame::GUIFrame( wxWindow* parent, wxWindowID id, const wxString& title, cons
 	
 	bSizer1->Add( m_notebook1, 1, wxEXPAND, 5 );
 	
-	textLog = new wxTextCtrl( this, wxID_ANY, wxEmptyString, wxDefaultPosition, wxSize( -1,-1 ), wxTE_AUTO_URL|wxTE_MULTILINE );
+	textLog = new wxTextCtrl( this, wxID_ANY, wxEmptyString, wxDefaultPosition, wxSize( -1,-1 ), wxTE_MULTILINE );
 	textLog->SetMinSize( wxSize( -1,50 ) );
 	
 	bSizer1->Add( textLog, 0, wxALIGN_LEFT|wxEXPAND, 5 );
@@ -129,6 +135,7 @@ GUIFrame::GUIFrame( wxWindow* parent, wxWindowID id, const wxString& title, cons
 	this->Layout();
 	
 	// Connect Events
+	this->Connect( wxEVT_ACTIVATE, wxActivateEventHandler( GUIFrame::OnStart ) );
 	this->Connect( wxEVT_CLOSE_WINDOW, wxCloseEventHandler( GUIFrame::OnClose ) );
 	this->Connect( menuFileQuit->GetId(), wxEVT_COMMAND_MENU_SELECTED, wxCommandEventHandler( GUIFrame::OnQuit ) );
 	this->Connect( menuHelpAbout->GetId(), wxEVT_COMMAND_MENU_SELECTED, wxCommandEventHandler( GUIFrame::OnAbout ) );
@@ -141,6 +148,7 @@ GUIFrame::GUIFrame( wxWindow* parent, wxWindowID id, const wxString& title, cons
 	sldSrCyl->Connect( wxEVT_SCROLL_THUMBTRACK, wxScrollEventHandler( GUIFrame::sldSrCyl_Onscroll ), NULL, this );
 	sldSrCyl->Connect( wxEVT_SCROLL_THUMBRELEASE, wxScrollEventHandler( GUIFrame::sldSrCyl_Onscroll ), NULL, this );
 	sldSrCyl->Connect( wxEVT_SCROLL_CHANGED, wxScrollEventHandler( GUIFrame::sldSrCyl_Onscroll ), NULL, this );
+	textSrCyl->Connect( wxEVT_COMMAND_SPINCTRL_UPDATED, wxSpinEventHandler( GUIFrame::SrCyl_OnSpin ), NULL, this );
 	sldSrTlocz->Connect( wxEVT_SCROLL_TOP, wxScrollEventHandler( GUIFrame::sldSrTlocz_Onscroll ), NULL, this );
 	sldSrTlocz->Connect( wxEVT_SCROLL_BOTTOM, wxScrollEventHandler( GUIFrame::sldSrTlocz_Onscroll ), NULL, this );
 	sldSrTlocz->Connect( wxEVT_SCROLL_LINEUP, wxScrollEventHandler( GUIFrame::sldSrTlocz_Onscroll ), NULL, this );
@@ -150,6 +158,15 @@ GUIFrame::GUIFrame( wxWindow* parent, wxWindowID id, const wxString& title, cons
 	sldSrTlocz->Connect( wxEVT_SCROLL_THUMBTRACK, wxScrollEventHandler( GUIFrame::sldSrTlocz_Onscroll ), NULL, this );
 	sldSrTlocz->Connect( wxEVT_SCROLL_THUMBRELEASE, wxScrollEventHandler( GUIFrame::sldSrTlocz_Onscroll ), NULL, this );
 	sldSrTlocz->Connect( wxEVT_SCROLL_CHANGED, wxScrollEventHandler( GUIFrame::sldSrTlocz_Onscroll ), NULL, this );
+	sldCisZas->Connect( wxEVT_SCROLL_TOP, wxScrollEventHandler( GUIFrame::CisZas_Onscroll ), NULL, this );
+	sldCisZas->Connect( wxEVT_SCROLL_BOTTOM, wxScrollEventHandler( GUIFrame::CisZas_Onscroll ), NULL, this );
+	sldCisZas->Connect( wxEVT_SCROLL_LINEUP, wxScrollEventHandler( GUIFrame::CisZas_Onscroll ), NULL, this );
+	sldCisZas->Connect( wxEVT_SCROLL_LINEDOWN, wxScrollEventHandler( GUIFrame::CisZas_Onscroll ), NULL, this );
+	sldCisZas->Connect( wxEVT_SCROLL_PAGEUP, wxScrollEventHandler( GUIFrame::CisZas_Onscroll ), NULL, this );
+	sldCisZas->Connect( wxEVT_SCROLL_PAGEDOWN, wxScrollEventHandler( GUIFrame::CisZas_Onscroll ), NULL, this );
+	sldCisZas->Connect( wxEVT_SCROLL_THUMBTRACK, wxScrollEventHandler( GUIFrame::CisZas_Onscroll ), NULL, this );
+	sldCisZas->Connect( wxEVT_SCROLL_THUMBRELEASE, wxScrollEventHandler( GUIFrame::CisZas_Onscroll ), NULL, this );
+	sldCisZas->Connect( wxEVT_SCROLL_CHANGED, wxScrollEventHandler( GUIFrame::CisZas_Onscroll ), NULL, this );
 	buttonOblicz->Connect( wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler( GUIFrame::Oblicz ), NULL, this );
 	buttonCleanLog->Connect( wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler( GUIFrame::CleanLog ), NULL, this );
 }
@@ -157,6 +174,7 @@ GUIFrame::GUIFrame( wxWindow* parent, wxWindowID id, const wxString& title, cons
 GUIFrame::~GUIFrame()
 {
 	// Disconnect Events
+	this->Disconnect( wxEVT_ACTIVATE, wxActivateEventHandler( GUIFrame::OnStart ) );
 	this->Disconnect( wxEVT_CLOSE_WINDOW, wxCloseEventHandler( GUIFrame::OnClose ) );
 	this->Disconnect( idMenuQuit, wxEVT_COMMAND_MENU_SELECTED, wxCommandEventHandler( GUIFrame::OnQuit ) );
 	this->Disconnect( idMenuAbout, wxEVT_COMMAND_MENU_SELECTED, wxCommandEventHandler( GUIFrame::OnAbout ) );
@@ -169,6 +187,7 @@ GUIFrame::~GUIFrame()
 	sldSrCyl->Disconnect( wxEVT_SCROLL_THUMBTRACK, wxScrollEventHandler( GUIFrame::sldSrCyl_Onscroll ), NULL, this );
 	sldSrCyl->Disconnect( wxEVT_SCROLL_THUMBRELEASE, wxScrollEventHandler( GUIFrame::sldSrCyl_Onscroll ), NULL, this );
 	sldSrCyl->Disconnect( wxEVT_SCROLL_CHANGED, wxScrollEventHandler( GUIFrame::sldSrCyl_Onscroll ), NULL, this );
+	textSrCyl->Disconnect( wxEVT_COMMAND_SPINCTRL_UPDATED, wxSpinEventHandler( GUIFrame::SrCyl_OnSpin ), NULL, this );
 	sldSrTlocz->Disconnect( wxEVT_SCROLL_TOP, wxScrollEventHandler( GUIFrame::sldSrTlocz_Onscroll ), NULL, this );
 	sldSrTlocz->Disconnect( wxEVT_SCROLL_BOTTOM, wxScrollEventHandler( GUIFrame::sldSrTlocz_Onscroll ), NULL, this );
 	sldSrTlocz->Disconnect( wxEVT_SCROLL_LINEUP, wxScrollEventHandler( GUIFrame::sldSrTlocz_Onscroll ), NULL, this );
@@ -178,6 +197,15 @@ GUIFrame::~GUIFrame()
 	sldSrTlocz->Disconnect( wxEVT_SCROLL_THUMBTRACK, wxScrollEventHandler( GUIFrame::sldSrTlocz_Onscroll ), NULL, this );
 	sldSrTlocz->Disconnect( wxEVT_SCROLL_THUMBRELEASE, wxScrollEventHandler( GUIFrame::sldSrTlocz_Onscroll ), NULL, this );
 	sldSrTlocz->Disconnect( wxEVT_SCROLL_CHANGED, wxScrollEventHandler( GUIFrame::sldSrTlocz_Onscroll ), NULL, this );
+	sldCisZas->Disconnect( wxEVT_SCROLL_TOP, wxScrollEventHandler( GUIFrame::CisZas_Onscroll ), NULL, this );
+	sldCisZas->Disconnect( wxEVT_SCROLL_BOTTOM, wxScrollEventHandler( GUIFrame::CisZas_Onscroll ), NULL, this );
+	sldCisZas->Disconnect( wxEVT_SCROLL_LINEUP, wxScrollEventHandler( GUIFrame::CisZas_Onscroll ), NULL, this );
+	sldCisZas->Disconnect( wxEVT_SCROLL_LINEDOWN, wxScrollEventHandler( GUIFrame::CisZas_Onscroll ), NULL, this );
+	sldCisZas->Disconnect( wxEVT_SCROLL_PAGEUP, wxScrollEventHandler( GUIFrame::CisZas_Onscroll ), NULL, this );
+	sldCisZas->Disconnect( wxEVT_SCROLL_PAGEDOWN, wxScrollEventHandler( GUIFrame::CisZas_Onscroll ), NULL, this );
+	sldCisZas->Disconnect( wxEVT_SCROLL_THUMBTRACK, wxScrollEventHandler( GUIFrame::CisZas_Onscroll ), NULL, this );
+	sldCisZas->Disconnect( wxEVT_SCROLL_THUMBRELEASE, wxScrollEventHandler( GUIFrame::CisZas_Onscroll ), NULL, this );
+	sldCisZas->Disconnect( wxEVT_SCROLL_CHANGED, wxScrollEventHandler( GUIFrame::CisZas_Onscroll ), NULL, this );
 	buttonOblicz->Disconnect( wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler( GUIFrame::Oblicz ), NULL, this );
 	buttonCleanLog->Disconnect( wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler( GUIFrame::CleanLog ), NULL, this );
 	
