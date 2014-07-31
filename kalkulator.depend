@@ -1,5 +1,5 @@
 # depslib dependency file v1.0
-1406833605 source:c:\users\oem\desktop\kalkulator\guiframe.cpp
+1406918907 source:c:\users\oem\desktop\kalkulator\guiframe.cpp
 	"wx/wxprec.h"
 	<wx/wx.h>
 	"GUIFrame.h"
@@ -2505,7 +2505,7 @@
 
 1406446644 d:\cpp\wxwidgets\include\wx\osx\mdi.h
 
-1406833000 c:\users\oem\desktop\kalkulator\guiframe.h
+1406919554 c:\users\oem\desktop\kalkulator\guiframe.h
 	<wx/artprov.h>
 	<wx/xrc/xmlres.h>
 	<wx/string.h>
@@ -2541,9 +2541,10 @@
 	<wx/msgdlg.h>
 	"GUIFrame.h"
 
-1406743644 source:c:\users\oem\desktop\kalkulator\kalkulatormain.cpp
+1406919486 source:c:\users\oem\desktop\kalkulator\kalkulatormain.cpp
 	"wx_pch.h"
 	"kalkulatorMain.h"
+	"version.h"
 
 1385320476 source:c:\users\oem\desktop\kalkulator\resource.rc
 	"wx/msw/wx.rc"
@@ -2644,4 +2645,6 @@
 
 1406446647 d:\cpp\wxwidgets\include\wx\osx\notebook.h
 	"wx/event.h"
+
+1406919609 c:\users\oem\desktop\kalkulator\version.h
 

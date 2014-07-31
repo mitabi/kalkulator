@@ -38,46 +38,67 @@
 ///////////////////////////////////////////////////////////////////////////////
 /// Class GUIFrame
 ///////////////////////////////////////////////////////////////////////////////
-class GUIFrame : public wxFrame 
+class GUIFrame : public wxFrame
 {
-	private:
-	
-	protected:
-		wxMenuBar* mbar;
-		wxMenu* fileMenu;
-		wxMenu* helpMenu;
-		wxStatusBar* statusBar;
-		wxNotebook* m_notebook1;
-		wxPanel* panelSilowniki;
-		wxStaticText* lblSrCyl;
-		wxSlider* sldSrCyl;
-		wxTextCtrl* textSrCyl;
-		wxComboBox* comJednCyl;
-		wxStaticText* lblSrTlocz;
-		wxSlider* sldSrTlocz;
-		wxTextCtrl* textSrTlocz;
-		wxComboBox* comJednTlocz;
-		wxButton* buttonOblicz;
-		wxPanel* m_panel3;
-		wxTextCtrl* textLog;
-		wxButton* buttonCleanLog;
-		
-		// Virtual event handlers, overide them in your derived class
-		virtual void OnClose( wxCloseEvent& event ) { event.Skip(); }
-		virtual void OnQuit( wxCommandEvent& event ) { event.Skip(); }
-		virtual void OnAbout( wxCommandEvent& event ) { event.Skip(); }
-		virtual void sldSrCyl_Onscroll( wxScrollEvent& event ) { event.Skip(); }
-		virtual void sldSrTlocz_Onscroll( wxScrollEvent& event ) { event.Skip(); }
-		virtual void Oblicz( wxCommandEvent& event ) { event.Skip(); }
-		virtual void CleanLog( wxCommandEvent& event ) { event.Skip(); }
-		
-	
-	public:
-		
-		GUIFrame( wxWindow* parent, wxWindowID id = wxID_ANY, const wxString& title = wxT("wxWidgets Application Template"), const wxPoint& pos = wxDefaultPosition, const wxSize& size = wxSize( 481,466 ), long style = wxDEFAULT_FRAME_STYLE|wxTAB_TRAVERSAL );
-		
-		~GUIFrame();
-	
+private:
+
+protected:
+    wxMenuBar* mbar;
+    wxMenu* fileMenu;
+    wxMenu* helpMenu;
+    wxStatusBar* statusBar;
+    wxNotebook* m_notebook1;
+    wxPanel* panelSilowniki;
+    wxStaticText* lblSrCyl;
+    wxSlider* sldSrCyl;
+    wxTextCtrl* textSrCyl;
+    wxComboBox* comJednCyl;
+    wxStaticText* lblSrTlocz;
+    wxSlider* sldSrTlocz;
+    wxTextCtrl* textSrTlocz;
+    wxComboBox* comJednTlocz;
+    wxButton* buttonOblicz;
+    wxPanel* m_panel3;
+    wxTextCtrl* textLog;
+    wxButton* buttonCleanLog;
+
+    // Virtual event handlers, overide them in your derived class
+    virtual void OnClose( wxCloseEvent& event )
+    {
+        event.Skip();
+    }
+    virtual void OnQuit( wxCommandEvent& event )
+    {
+        event.Skip();
+    }
+    virtual void OnAbout( wxCommandEvent& event )
+    {
+        event.Skip();
+    }
+    virtual void sldSrCyl_Onscroll( wxScrollEvent& event )
+    {
+        event.Skip();
+    }
+    virtual void sldSrTlocz_Onscroll( wxScrollEvent& event )
+    {
+        event.Skip();
+    }
+    virtual void Oblicz( wxCommandEvent& event )
+    {
+        event.Skip();
+    }
+    virtual void CleanLog( wxCommandEvent& event )
+    {
+        event.Skip();
+    }
+
+
+public:
+
+    GUIFrame( wxWindow* parent, wxWindowID id = wxID_ANY, const wxString& title = wxT("Kalkulator"), const wxPoint& pos = wxDefaultPosition, const wxSize& size = wxSize( 600,466 ), long style = wxDEFAULT_FRAME_STYLE|wxTAB_TRAVERSAL );
+
+    ~GUIFrame();
+
 };
 
 #endif //__GUIFRAME_H__

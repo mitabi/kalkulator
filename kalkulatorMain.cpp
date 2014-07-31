@@ -16,7 +16,7 @@
 #endif //__BORLANDC__
 
 #include "kalkulatorMain.h"
-
+#include "version.h"
 //helper functions
 enum wxbuildinfoformat
 {
@@ -73,28 +73,28 @@ void kalkulatorFrame::OnQuit(wxCommandEvent &event)
 
 void kalkulatorFrame::OnAbout(wxCommandEvent &event)
 {
-    wxString msg = wxbuildinfo(long_f);
-    wxMessageBox(msg, _("Welcome to..."));
+    wxString msg = FULLVERSION_STRING;
+    wxMessageBox("Kalkulator wersja: " FULLVERSION_STRING "\n Data kompilacji: " YEAR "." MONTH "." DATE, _("Info"));
 }
 void kalkulatorFrame::Oblicz(wxCommandEvent& event)
 {
-   long srCyl;
-    wxString SrCyl = textSrCyl -> GetValue();
-    wxString number(wxT("3.14159"));
- textLog -> AppendText(textSrCyl -> GetValue()+"\n");
+    wxInt32 test1 = sldSrCyl->GetValue();
+    wxInt32 test2 =sldSrTlocz->GetValue();
+    wxInt32 test = test1*test2;
+    textLog -> AppendText( wxString::Format(wxT("%i"),test)+"\n");
 }
-
+void kalkulatorFrame::sldSrTlocz_Onscroll(wxScrollEvent& event)
+{
+    textSrTlocz->SetValue(wxString::Format(wxT("%i"),sldSrTlocz->GetValue()));
+    Refresh();
+}
 void kalkulatorFrame::sldSrCyl_Onscroll(wxScrollEvent& event)
 {
     textSrCyl->SetValue(wxString::Format(wxT("%i"),sldSrCyl->GetValue()));
     Refresh();
 }
 
-void kalkulatorFrame::sldSrTlocz_Onscroll(wxScrollEvent& event)
-{
-    textSrTlocz->SetValue(wxString::Format(wxT("%i"),sldSrTlocz->GetValue()));
-    Refresh();
-}
+
 
 void kalkulatorFrame::CleanLog(wxCommandEvent& event)
 {
