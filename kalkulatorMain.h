@@ -26,6 +26,7 @@ private:
     virtual void OnClose(wxCloseEvent& event);
     virtual void OnQuit(wxCommandEvent& event);
     virtual void OnAbout(wxCommandEvent& event);
+    virtual void SaveFile(wxCommandEvent& event);
     virtual void Oblicz(wxCommandEvent& event);
     virtual void sldSrCyl_Onscroll( wxScrollEvent& event ) ;
     virtual void sldSrTlocz_Onscroll( wxScrollEvent& event ) ;
@@ -33,6 +34,8 @@ private:
     virtual void CisZas_Onscroll( wxScrollEvent& event ) ;
     virtual void OnStart(wxActivateEvent& event);
     virtual void SrCyl_OnSpin(wxSpinEvent& event);
+    virtual void CisZas_OnSpin(wxSpinEvent& event);
+    virtual void SrTlocz_OnSpin(wxSpinEvent& event);
 
 
 };

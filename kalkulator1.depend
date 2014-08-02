@@ -1,37 +1,12 @@
 # depslib dependency file v1.0
-6885216 
-
-1407517205 source:c:\users\oem\desktop\kalkulator\guiframe.cpp
+<<<<<<< HEAD
+1407012259 source:c:\users\oem\desktop\kalkulator\guiframe.cpp
+=======
+1406918907 source:c:\users\oem\desktop\kalkulator\guiframe.cpp
+>>>>>>> 289f87b5c53ce3df44b6d72fd8fc010780b6fe0e
 	"wx/wxprec.h"
 	<wx/wx.h>
 	"GUIFrame.h"
-
-1406919609 f87b5c53ce3df44b6d72fd8fc010780b6fe0e
-	"wx/wxprec.h"
-	<wx/wx.h>
-	"GUIFrame.h"
-	<wx/artprov.h>
-	<wx/xrc/xmlres.h>
-	<wx/string.h>
-	<wx/bitmap.h>
-	<wx/image.h>
-	<wx/icon.h>
-	<wx/menu.h>
-	<wx/gdicmn.h>
-	<wx/font.h>
-	<wx/colour.h>
-	<wx/settings.h>
-	<wx/statusbr.h>
-	<wx/stattext.h>
-	<wx/slider.h>
-	<wx/spinctrl.h>
-	<wx/choice.h>
-	<wx/sizer.h>
-	<wx/button.h>
-	<wx/panel.h>
-	<wx/notebook.h>
-	<wx/textctrl.h>
-	<wx/frame.h>
 
 1406446643 d:\cpp\wxwidgets\include\wx\wxprec.h
 	"wx/defs.h"
@@ -508,7 +483,7 @@
 	<list>
 	"wx/afterstd.h"
 
-1407352098 d:\cpp\wxwidgets\include\wx\datetime.h
+1406446655 d:\cpp\wxwidgets\include\wx\datetime.h
 	"wx/defs.h"
 	"wx/msw/wince/time.h"
 	<time.h>
@@ -2325,7 +2300,7 @@
 1406446659 d:\cpp\wxwidgets\include\wx\univ\scrthumb.h
 	"wx/timer.h"
 
-1407352097 d:\cpp\wxwidgets\include\wx\msw\slider.h
+1406446632 d:\cpp\wxwidgets\include\wx\msw\slider.h
 
 1406446656 d:\cpp\wxwidgets\include\wx\motif\slider.h
 	"wx/control.h"
@@ -2534,9 +2509,11 @@
 
 1406446644 d:\cpp\wxwidgets\include\wx\osx\mdi.h
 
-1406446647 D
-
-1407517205 c:\users\oem\desktop\kalkulator\guiframe.h
+<<<<<<< HEAD
+1407013222 c:\users\oem\desktop\kalkulator\guiframe.h
+=======
+1406919554 c:\users\oem\desktop\kalkulator\guiframe.h
+>>>>>>> 289f87b5c53ce3df44b6d72fd8fc010780b6fe0e
 	<wx/artprov.h>
 	<wx/xrc/xmlres.h>
 	<wx/string.h>
@@ -2554,10 +2531,10 @@
 	<wx/spinctrl.h>
 	<wx/choice.h>
 	<wx/sizer.h>
-	<wx/textctrl.h>
 	<wx/button.h>
 	<wx/panel.h>
 	<wx/notebook.h>
+	<wx/textctrl.h>
 	<wx/frame.h>
 
 1406833202 source:c:\users\oem\desktop\kalkulator\kalkulatorapp.cpp
@@ -2568,20 +2545,25 @@
 1406657306 c:\users\oem\desktop\kalkulator\kalkulatorapp.h
 	<wx/app.h>
 
-1407343875 c:\users\oem\desktop\kalkulator\kalkulatormain.h
+1407013283 c:\users\oem\desktop\kalkulator\kalkulatormain.h
 	"kalkulatorApp.h"
 	<wx/msgdlg.h>
 	"GUIFrame.h"
 
-1407343965 source:c:\users\oem\desktop\kalkulator\kalkulatormain.cpp
+<<<<<<< HEAD
+1407011048 source:c:\users\oem\desktop\kalkulator\kalkulatormain.cpp
 	"wx_pch.h"
 	"kalkulatorMain.h"
 	"version.h"
 	"wx/combobox.h"
 	"wx/textctrl.h"
 	"GUIFrame.h"
-
-1407011048 h"
+=======
+1406919486 source:c:\users\oem\desktop\kalkulator\kalkulatormain.cpp
+	"wx_pch.h"
+	"kalkulatorMain.h"
+	"version.h"
+>>>>>>> 289f87b5c53ce3df44b6d72fd8fc010780b6fe0e
 
 1385320476 source:c:\users\oem\desktop\kalkulator\resource.rc
 	"wx/msw/wx.rc"
@@ -2683,7 +2665,8 @@
 1406446647 d:\cpp\wxwidgets\include\wx\osx\notebook.h
 	"wx/event.h"
 
-1407344019 c:\users\oem\desktop\kalkulator\version.h
+<<<<<<< HEAD
+1407011976 c:\users\oem\desktop\kalkulator\version.h
 
 1406446643 d:\cpp\wxwidgets\include\wx\spinctrl.h
 	"wx/defs.h"
@@ -2742,8 +2725,7 @@
 1406446665 d:\cpp\wxwidgets\include\wx\compositewin.h
 	"wx/window.h"
 	"wx/containr.h"
-
-1406446665 nr.h"
-
-1406446636 d:\cpp\wxwidgets\lib\gcc_dll\mswu\wx\setup.h
+=======
+1406919609 c:\users\oem\desktop\kalkulator\version.h
+>>>>>>> 289f87b5c53ce3df44b6d72fd8fc010780b6fe0e
 

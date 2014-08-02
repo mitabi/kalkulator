@@ -17,10 +17,13 @@
 
 #include "kalkulatorMain.h"
 #include "version.h"
+
 #include "wx/combobox.h"
 #include "wx/textctrl.h"
 #include "GUIFrame.h"
-
+#include "wx/dialog.h"
+#include "wx/filename.h"
+#include "wx/filedlg.h"
 //helper functions
 enum wxbuildinfoformat
 {
@@ -55,14 +58,16 @@ wxString wxbuildinfo(wxbuildinfoformat format)
 kalkulatorFrame::kalkulatorFrame(wxFrame *frame)
     : GUIFrame(frame)
 {
-#if wxUSE_STATUSBAR
-    statusBar->SetStatusText(_("Hello Code::Blocks user!"), 0);
-    statusBar->SetStatusText(wxbuildinfo(short_f), 1);
-#endif
+    /* #if wxUSE_STATUSBAR
+     *     statusBar->SetStatusText(_("Hello Code::Blocks user!"), 0);
+     *     statusBar->SetStatusText(wxbuildinfo(short_f), 1);
+     * #endif
+     */
 }
 
 kalkulatorFrame::~kalkulatorFrame()
 {
+
 }
 
 void kalkulatorFrame::OnClose(wxCloseEvent &event)
@@ -78,11 +83,14 @@ void kalkulatorFrame::OnQuit(wxCommandEvent &event)
 void kalkulatorFrame::OnAbout(wxCommandEvent &event)
 {
     wxString msg = FULLVERSION_STRING;
+
     wxMessageBox("Kalkulator wersja: " FULLVERSION_STRING
-                 "\n Data kompilacji: " YEAR "." MONTH "." DATE, _("Info"));
+                 "\nData kompilacji: " YEAR "." MONTH "." DATE
+                 "\n" + wxbuildinfo(short_f), _("Info"));
+
 }
 /*
- * FUNKCJA OBLICZAJ�CA DANE
+ * FUNKCJA OBLICZAJACA DANE
  */
 
 void kalkulatorFrame::Oblicz(wxCommandEvent& event)
@@ -90,8 +98,11 @@ void kalkulatorFrame::Oblicz(wxCommandEvent& event)
 
 
 
+
     float kCyl=0, kTlocz=0, kCisZas=0;
-    double Wynik =0;
+    float Wynik =0;
+    float powCyl =0, powTlocz = 0;
+
     //wxString mm="mm";
 
     if ( comJednCyl -> GetString( comJednCyl-> GetCurrentSelection()) == "mm")
@@ -164,17 +175,37 @@ void kalkulatorFrame::Oblicz(wxCommandEvent& event)
         }
     }
 
-   // Wynik=kCyl*(sldSrCyl->GetValue())*kTlocz*(sldSrTlocz->GetValue())*kCisZas*(sldCisZas -> GetValue());
- Wynik=3.1415926*kCyl*(sldSrCyl->GetValue())/4*kCisZas*(sldCisZas -> GetValue());
-    textLog -> AppendText( wxString::Format(wxT("%"), Wynik )+"\n");
+    // Wynik=kCyl*(sldSrCyl->GetValue())*kTlocz*(sldSrTlocz->GetValue())*kCisZas*(sldCisZas -> GetValue());
+    powCyl = 3.1415926*(kCyl*(sldSrCyl->GetValue()))*(kCyl*(sldSrCyl->GetValue()))/4;
+    powTlocz = 3.1415926*((kTlocz*(sldSrTlocz->GetValue()))*(kTlocz*(sldSrTlocz->GetValue())))/4;
+    Wynik = 0.001*powCyl*kCisZas*(sldCisZas -> GetValue());
+
+    textLog -> AppendText( wxString::Format(wxT("Powierzchnia cylindra: %f"), powCyl )+"m2\n");
+    textLog -> AppendText( wxString::Format(wxT("Powierzchnia tłoczyska: %f"), powTlocz)+"m2\n");
+    textLog -> AppendText( wxString::Format(wxT("Siła pchająca: %f"), Wynik)+"kN\n");
+    textLog -> AppendText( wxString::Format(wxT("Siła ciągu: %f"),
+                                            (0.001*(powCyl-powTlocz)*kCisZas*(sldCisZas -> GetValue())))
+                           + "kN\n\n");
+
 }
 void kalkulatorFrame::sldSrTlocz_Onscroll(wxScrollEvent& event)
 {
+    if ((sldSrTlocz->GetValue())>(sldSrCyl->GetValue()))
+    {
+        sldSrTlocz-> SetValue(sldSrCyl->GetValue());
+    }
     textSrTlocz->SetValue(wxString::Format(wxT("%i"),sldSrTlocz->GetValue()));
+
     Refresh();
 }
 void kalkulatorFrame::sldSrCyl_Onscroll(wxScrollEvent& event)
 {
+
+    if ((sldSrTlocz->GetValue())>(sldSrCyl->GetValue()))
+    {
+        sldSrTlocz-> SetValue(sldSrCyl->GetValue());
+        textSrTlocz->SetValue(wxString::Format(wxT("%i"),sldSrTlocz->GetValue()));
+    }
     textSrCyl->SetValue(wxString::Format(wxT("%i"),sldSrCyl->GetValue()));
     Refresh();
 }
@@ -184,7 +215,6 @@ void kalkulatorFrame::CisZas_Onscroll(wxScrollEvent& event)
     textCisZas->SetValue(wxString::Format(wxT("%i"),sldCisZas->GetValue()));
     Refresh();
 }
-
 void kalkulatorFrame::CleanLog(wxCommandEvent& event)
 {
     textLog->Clear();
@@ -201,9 +231,38 @@ void kalkulatorFrame::OnStart(wxActivateEvent& event)
 void kalkulatorFrame::SrCyl_OnSpin(wxSpinEvent& event)
 {
     sldSrCyl-> SetValue(textSrCyl->GetValue());
+    Refresh();
 }
 
+void kalkulatorFrame::SrTlocz_OnSpin(wxSpinEvent& event)
+{
+    sldSrTlocz-> SetValue(textSrTlocz->GetValue());
+    Refresh();
+}
 
+void kalkulatorFrame::CisZas_OnSpin(wxSpinEvent& event)
+{
+    sldCisZas-> SetValue(textCisZas->GetValue());
+    Refresh();
+}
+
+void kalkulatorFrame::SaveFile(wxCommandEvent& WXUNUSED(event))
+{
+    wxFileDialog * saveFileDialog = new wxFileDialog(this);
+
+    if (saveFileDialog->ShowModal() == wxID_OK)
+    {
+        wxFileDialog saveFileDialog(this, _("Save XYZ file"), "", "",
+                                    "XYZ files (*.xyz)|*.xyz", wxFD_SAVE|wxFD_OVERWRITE_PROMPT);
+        if (saveFileDialog.ShowModal() == wxID_CANCEL)
+            return; // the user changed idea...
+// save the current contents in the file;
+// this can be done with e.g. wxWidgets output streams:
+
+
+
+    }
+}
 
 
 

@@ -25,10 +25,10 @@
 #include <wx/spinctrl.h>
 #include <wx/choice.h>
 #include <wx/sizer.h>
+#include <wx/textctrl.h>
 #include <wx/button.h>
 #include <wx/panel.h>
 #include <wx/notebook.h>
-#include <wx/textctrl.h>
 #include <wx/frame.h>
 
 ///////////////////////////////////////////////////////////////////////////
@@ -39,53 +39,112 @@
 ///////////////////////////////////////////////////////////////////////////////
 /// Class GUIFrame
 ///////////////////////////////////////////////////////////////////////////////
-class GUIFrame : public wxFrame 
+class GUIFrame : public wxFrame
 {
-	private:
-	
-	protected:
-		wxMenuBar* mbar;
-		wxMenu* fileMenu;
-		wxMenu* helpMenu;
-		wxStatusBar* statusBar;
-		wxNotebook* m_notebook1;
-		wxPanel* panelSilowniki;
-		wxStaticText* lblSrCyl;
-		wxSlider* sldSrCyl;
-		wxSpinCtrl* textSrCyl;
-		wxChoice* comJednCyl;
-		wxStaticText* lblSrTlocz;
-		wxSlider* sldSrTlocz;
-		wxSpinCtrl* textSrTlocz;
-		wxChoice* comJednTlocz;
-		wxStaticText* lblCisZas;
-		wxSlider* sldCisZas;
-		wxSpinCtrl* textCisZas;
-		wxChoice* comJednCisZas;
-		wxButton* buttonOblicz;
-		wxPanel* m_panel3;
-		wxTextCtrl* textLog;
-		wxButton* buttonCleanLog;
-		
-		// Virtual event handlers, overide them in your derived class
-		virtual void OnStart( wxActivateEvent& event ) { event.Skip(); }
-		virtual void OnClose( wxCloseEvent& event ) { event.Skip(); }
-		virtual void OnQuit( wxCommandEvent& event ) { event.Skip(); }
-		virtual void OnAbout( wxCommandEvent& event ) { event.Skip(); }
-		virtual void sldSrCyl_Onscroll( wxScrollEvent& event ) { event.Skip(); }
-		virtual void SrCyl_OnSpin( wxSpinEvent& event ) { event.Skip(); }
-		virtual void sldSrTlocz_Onscroll( wxScrollEvent& event ) { event.Skip(); }
-		virtual void CisZas_Onscroll( wxScrollEvent& event ) { event.Skip(); }
-		virtual void Oblicz( wxCommandEvent& event ) { event.Skip(); }
-		virtual void CleanLog( wxCommandEvent& event ) { event.Skip(); }
-		
-	
-	public:
-		
-		GUIFrame( wxWindow* parent, wxWindowID id = wxID_ANY, const wxString& title = wxT("Kalkulator"), const wxPoint& pos = wxDefaultPosition, const wxSize& size = wxSize( 745,466 ), long style = wxDEFAULT_FRAME_STYLE|wxTAB_TRAVERSAL );
-		
-		~GUIFrame();
-	
+private:
+
+protected:
+    wxMenuBar* mbar;
+    wxMenu* fileMenu;
+    wxMenu* helpMenu;
+    wxStatusBar* statusBar;
+    wxNotebook* m_notebook1;
+    wxPanel* panelSilowniki;
+    wxStaticText* lblSrCyl;
+    wxSlider* sldSrCyl;
+    wxSpinCtrl* textSrCyl;
+    wxChoice* comJednCyl;
+    wxStaticText* lblSrTlocz;
+    wxSlider* sldSrTlocz;
+    wxSpinCtrl* textSrTlocz;
+    wxChoice* comJednTlocz;
+    wxStaticText* lblSkokTlocz;
+    wxSlider* sldSkokTlocz;
+    wxSpinCtrl* textSkokTlocz;
+    wxChoice* comJednSkokTlocz;
+    wxStaticText* lblCisZas;
+    wxSlider* sldCisZas;
+    wxSpinCtrl* textCisZas;
+    wxChoice* comJednCisZas;
+    wxTextCtrl* m_textCtrl2;
+    wxButton* buttonOblicz;
+    wxPanel* m_panel3;
+    wxTextCtrl* textLog;
+    wxButton* buttonCleanLog;
+
+    // Virtual event handlers, overide them in your derived class
+    virtual void OnStart( wxActivateEvent& event )
+    {
+        event.Skip();
+    }
+    virtual void OnClose( wxCloseEvent& event )
+    {
+        event.Skip();
+    }
+    virtual void SaveFile( wxCommandEvent& event )
+    {
+        event.Skip();
+    }
+    virtual void OnQuit( wxCommandEvent& event )
+    {
+        event.Skip();
+    }
+    virtual void OnAbout( wxCommandEvent& event )
+    {
+        event.Skip();
+    }
+    virtual void sldSrCyl_Onscroll( wxScrollEvent& event )
+    {
+        event.Skip();
+    }
+    virtual void SrCyl_OnSpin( wxSpinEvent& event )
+    {
+        event.Skip();
+    }
+    virtual void SrCyl_OnSpin( wxCommandEvent& event )
+    {
+        event.Skip();
+    }
+    virtual void sldSrTlocz_Onscroll( wxScrollEvent& event )
+    {
+        event.Skip();
+    }
+    virtual void SrTlocz_OnSpin( wxSpinEvent& event )
+    {
+        event.Skip();
+    }
+    virtual void SrTlocz_OnSpin( wxCommandEvent& event )
+    {
+        event.Skip();
+    }
+    virtual void CisZas_Onscroll( wxScrollEvent& event )
+    {
+        event.Skip();
+    }
+    virtual void CisZas_OnSpin( wxSpinEvent& event )
+    {
+        event.Skip();
+    }
+    virtual void CisZas_OnSpin( wxCommandEvent& event )
+    {
+        event.Skip();
+    }
+    virtual void Oblicz( wxCommandEvent& event )
+    {
+        event.Skip();
+    }
+    virtual void CleanLog( wxCommandEvent& event )
+    {
+        event.Skip();
+    }
+
+
+public:
+
+    GUIFrame( wxWindow* parent, wxWindowID id = wxID_ANY, const wxString& title = wxT("Kalkulator"), const wxPoint& pos = wxDefaultPosition, const wxSize& size = wxSize( 600,466 ), long style = wxDEFAULT_FRAME_STYLE|wxTAB_TRAVERSAL );
+
+    ~GUIFrame();
+
 };
 
 #endif //__GUIFRAME_H__
